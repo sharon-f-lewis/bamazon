@@ -1,6 +1,7 @@
 USE bamazon_db;
 
 DELETE FROM products;
+DELETE FROM departments;
 
 INSERT INTO products
   (product_name, dept_name, price, stock_qty)
@@ -15,4 +16,14 @@ VALUES
   ,('Snickers', 'Candy', 1.25, 12)
   ,('Milk', 'Grocery', 2.60, 8)
   ,('Cheese', 'Grocery', 1.90, 10)
+;
+
+INSERT INTO departments
+  (department_name, overhead_costs)
+VALUES
+  ('Housewares', 1000)
+  ,('Bed & Bath', 500)
+  ,('CDs', 250)
+  ,('Candy', 500)
+  ,('Grocery', 2500)
 ;
