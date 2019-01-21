@@ -9,7 +9,7 @@ VALUES
   ('Skillet', 'Housewares', 2.50, 35)
   ,('Frying Pan', 'Housewares', 4.50, 3)
   ,('Bed Sheets', 'Bed & Bath', 12.50, 15)
-  ,('Pillows', 'Bed & Batch', 7.25, 99)
+  ,('Pillows', 'Bed & Bath', 7.25, 99)
   ,('The Fray - The Fray', 'CDs', 15.25, 8)
   ,('Tracks of My Years - Bryan Adams', 'CDs', 22.35, 12)
   ,('3 Muskateers', 'Candy', 1.25, 12)
@@ -21,9 +21,9 @@ VALUES
 INSERT INTO departments
   (department_name, overhead_costs)
 VALUES
-  ('Housewares', 1000)
+  ('Housewares', 100)
   ,('Bed & Bath', 500)
   ,('CDs', 250)
   ,('Candy', 500)
-  ,('Grocery', 2500)
+  ,('Grocery', 250)
 ;

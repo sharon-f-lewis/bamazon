@@ -13,7 +13,7 @@ An interactive shopping node app where MySQL and Node.JS are used to:
 
 ***
 
-The Bamazon Customer Portal allows users to view the current items available for puchase. The user will be prompted to enter the item id# and how many items they wish to purchase. If the item is in stock, the order will be completed and the user will see the total amount of their purchase.
+The Bamazon Customer Portal allows customers to view the current items available for puchase. The customer will be prompted to enter the item id# and how many items they wish to purchase. If the item is in stock, the order will be completed and the customer will see the total amount of their purchase.
 
 ![Customer Portal](screenshots/customer.JPG)
 
@@ -21,7 +21,7 @@ The Bamazon Customer Portal allows users to view the current items available for
 
 ***
 
-The Bamazon Manager Portal allows users to view and edit the inventory of the store. The user will be prompted to choose from the following options:
+The Bamazon Manager Portal allows users to view and edit the inventory of the store. The manager will be prompted to choose from the following options:
 
 * View Products for Sale
 * View Low Inventory
@@ -35,7 +35,7 @@ The Bamazon Manager Portal allows users to view and edit the inventory of the st
 
 ***
 
-The first option allows the user to see the list of products that are currently for sale, what department the item belongs to, the price of the product, and how much stock is left for that product.
+The first option allows the manager to see the list of products that are currently for sale, what department the item belongs to, the price of the product, and how much stock is left for that product.
 
 ![Manager Option 1](screenshots/managerOption1.JPG)
 
@@ -43,9 +43,49 @@ The first option allows the user to see the list of products that are currently 
 
 ***
 
-The second option allows the user to see a list of all inventory items that have less than 5 items in stock. If there are no products that meet this criteria, the user will see an empty table.
+The second option allows the manager to see a list of all inventory items that have less than 5 items in stock. If there are no products that meet this criteria, the manager will see an empty table.
 
 ![Manager Option 2](screenshots/managerOption2.JPG)
+
+#### Manager Option 3
+
+***
+
+The third option allows the manager to add inventory to an existing product.
+
+![Manager Option 3](screenshots/managerOption3.JPG)
+
+#### Manager Option 4
+
+***
+
+The fourth option allows the manager to add a new product to inventory.
+
+![Manager Option 4](screenshots/managerOption4.JPG)
+
+### Bamazon Supervisor Portal
+
+***
+
+The Bamazon Supervisor Portal allows users to view the total profits of the store categorized by department and add new departments. The supervisor will be prompted to choose from the following options:
+
+![Supervisor Menu](screenshots/supervisorMenu.JPG)
+
+### Supervisor Option 1
+
+***
+
+The first option allows the supervisor to view a list of departments including the overhead costs, total sales, and profits to date for the department.
+
+![Supervisor Option 1](screenshots/supervisorOption1.JPG)
+
+### Supervisor Option 2
+
+***
+
+The second option allows the supervisor to add a new department.
+
+![Supervisor Option 2](screenshots/supervisorOption2.JPG)
 
 ## Installation
 

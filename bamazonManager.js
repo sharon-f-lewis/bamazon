@@ -69,10 +69,10 @@ const viewProducts = () => {
   // console.log('view products');
 
   // Create the heading for the table
-  const table = new Table({ head: ['Id', 'Description', 'Price', 'Qty'] });
+  const table = new Table({ head: ['Id', 'Description', 'Dept Name', 'Price', 'Qty'] });
 
   // Select the products from the database
-  const query = db.query("SELECT id, product_name, price, stock_qty FROM products", (err, productData) => {
+  const query = db.query("SELECT id, product_name, dept_name, price, stock_qty FROM products", (err, productData) => {
 
     // If an error occurs report it
     if (err) throw err;
@@ -81,6 +81,7 @@ const viewProducts = () => {
     productData.forEach(product => {
       table.push([`${product.id}`,
       `${product.product_name}`,
+      `${product.dept_name}`,
       `${product.price.toFixed(2)}`,
       `${product.stock_qty}`]);
     });
@@ -100,10 +101,10 @@ const viewLowInventory = () => {
   // console.log('view low inventory');
 
   // Create the heading for the table
-  const table = new Table({ head: ['Id', 'Description', 'Price', 'Qty'] });
+  const table = new Table({ head: ['Id', 'Description', 'Dept Name', 'Price', 'Qty'] });
 
   // Select products from database with less then 5 in stock
-  const query = db.query("SELECT id, product_name, price, stock_qty FROM products WHERE stock_qty < 5", (err, productData) => {
+  const query = db.query("SELECT id, product_name, dept_name, price, stock_qty FROM products WHERE stock_qty < 5", (err, productData) => {
 
     // If an error occurs, report it
     if (err) throw err;
@@ -112,6 +113,7 @@ const viewLowInventory = () => {
     productData.forEach(product => {
       table.push([`${product.id}`,
       `${product.product_name}`,
+      `${product.dept_name}`,
       `${product.price.toFixed(2)}`,
       `${product.stock_qty}`]);
     });
@@ -153,12 +155,9 @@ const increaseInventory = () => {
       } // end qty prompt
     ])
     .then(userResp => {
-      console.log(userResp);
+      // console.log(userResp);
       updateQty(userResp);
-
-      // Prompt the manager for the next action
-      promptManager();
-    });
+    })
 };
 
 const updateQty = (resp) => {
@@ -171,9 +170,14 @@ const updateQty = (resp) => {
     if (err) throw err;
 
     // report item updated
-    console.log(`${res.affectedRows} product updated!`);
-  });
-  console.log(`update ${query.sql}`);
+    console.log(`
+      ${res.affectedRows} product(s) updated!
+      `);
+
+    // Prompt the manager for the next action
+    promptManager();
+  })
+  // console.log(`Update ${query.sql}`);
 };
 
 const newProduct = () => {
@@ -195,7 +199,7 @@ const newProduct = () => {
       {
         type: "input"
         , name: "price"
-        , message: "How munch to charge?"
+        , message: "How much to charge?"
         , validate: (price) => {
           if (!isNaN(price)) {
             return true;
@@ -223,16 +227,13 @@ const newProduct = () => {
 
       // Call function to add new item
       addItem(userResp);
-
-      // Prompt the manager for the next action
-      promptManager();
-
-    });
+    })
 };
 
 // Add new item to database
 const addItem = (userResp) => {
-  console.log(userResp);
+
+  // console.log(userResp);
 
   // SQL query to insert new item in database
   const query = db.query("INSERT INTO products SET ?",
@@ -248,9 +249,13 @@ const addItem = (userResp) => {
       if (err) throw err;
 
       // report item inserted
-      console.log(`${res.affectedRows} product inserted!`);
+      console.log(`
+        ${res.affectedRows} product inserted!
+        `);
 
+      // Prompt the manager for the next action
+      promptManager();
     });
 
-  console.log(`Add item: ${query.sql}`);
+  // console.log(`Add item: ${query.sql}`);
 };
